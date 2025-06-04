@@ -4,6 +4,8 @@ import {
 } from "react-router";
 import Root from "../layouts/Root";
 import Home from "../pages/Home/Home";
+import Signup from "../pages/Signup/Signup";
+import SignIn from "../pages/signIn/SignIn";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +15,14 @@ const router = createBrowserRouter([
         {
             index:true,
             Component:Home
+        },
+        {
+            path:'/signup',
+            Component:Signup
+        },
+        {
+            path:'/signin',
+            Component:SignIn
         }
     ]
   },
