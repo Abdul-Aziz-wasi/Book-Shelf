@@ -7,6 +7,7 @@ import Home from "../pages/Home/Home";
 import Signup from "../pages/Signup/Signup";
 import SignIn from "../pages/signIn/SignIn";
 import BookShelf from "../pages/BookShelf/BookShelf";
+import BookDetails from "../pages/BookDetails/BookDetails";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,13 @@ const router = createBrowserRouter([
             index:true,
             Component:Home
         },
+        {
+            path:'/books/:id',
+            loader:({params})=> fetch(`http://localhost:3000/books/${params.id}`),
+            Component:BookDetails
+
+        },
+       
         {
             path:'/signup',
             Component:Signup

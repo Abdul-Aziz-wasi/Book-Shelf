@@ -17,14 +17,14 @@ const Navabr = () => {
     }
 
     const links = <>
-    <li><NavLink to='/'>Home</NavLink></li>
-    <li><NavLink to='/bookShelf'>Bookshelf</NavLink></li>
+    <li className='text-2xl'><NavLink to='/'>Home</NavLink></li>
+    <li className='text-2xl'><NavLink to='/bookShelf'>Bookshelf</NavLink></li>
     
         
 
     </>
     return (
-       <div className="navbar sticky top-0 z-50 bg-white/30 backdrop-blur-md text-gray-800   shadow-sm">
+       <div className="navbar sticky top-0 z-50 h-36  backdrop-blur-md text-gray-800 w-full   shadow-sm">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -51,8 +51,8 @@ const Navabr = () => {
         
          onClick={handleSignOut} className='btn bg-teal-800 text-white rounded-3xl'>Sing out</button> :
         <>
-        <NavLink to='signup' className='btn bg-teal-800 text-white rounded-3xl '>Sign up</NavLink>
-    <NavLink to='signin' className='btn bg-teal-800 text-white rounded-3xl '>Sign In</NavLink>
+        <NavLink to='/signup' className='btn bg-teal-800 text-white rounded-3xl '>Sign up</NavLink>
+    {/* <NavLink to='/signin' className='btn bg-teal-800 text-white rounded-3xl '>Sign In</NavLink> */}
         </>
     }
   </div>
