@@ -1,6 +1,6 @@
 import React, { use } from 'react';
 
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../contexts/AuthContext';
 
 const Navabr = () => {
@@ -17,46 +17,61 @@ const Navabr = () => {
     }
 
     const links = <>
-    <li className='text-2xl'><NavLink to='/'>Home</NavLink></li>
-    <li className='text-2xl'><NavLink to='/bookShelf'>Bookshelf</NavLink></li>
+    <li className='font-bold'><NavLink to='/'>Home</NavLink></li>
+    <li className='font-bold'><NavLink to='/bookShelf'>Bookshelf</NavLink></li>
     
         
 
     </>
     return (
-       <div className="navbar sticky top-0 z-50 h-36  backdrop-blur-md text-gray-800 w-full   shadow-sm">
-  <div className="navbar-start">
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+         <div className="navbar sticky top-0 z-50 bg-gradient-to-r from-teal-800 to-purple-800 text-white backdrop-blur-md shadow-sm ">
+      <div className="navbar-start">
+        {/* Mobile Dropdown */}
+        <div className="dropdown">
+          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </label>
+          <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52">
+            {links}
+          </ul>
+        </div>
+        {/* Logo */}
+        <Link to='/' className="text-3xl font-bold text-teal-800">
+         <span className="text-yellow-300">Book</span><span className="text-white">Nest</span>
+        </Link>
       </div>
-      <ul
-        tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+
+      {/* Desktop Menu */}
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal gap-3 px-1 font-medium">
+          {links}
+        </ul>
+      </div>
+
+      {/* Auth Buttons */}
+      <div className="navbar-end space-x-2">
         {
-            links
+          user ? (
+            <button onClick={handleSignOut} className="btn btn-sm bg-teal-700 text-white rounded-full px-4">
+              Sign Out
+            </button>
+          ) : (
+            <>
+              <NavLink to='/signup' className="btn btn-sm bg-teal-600 text-white rounded-full px-4">
+                Sign Up
+              </NavLink>
+              {/* <NavLink to='/signin' className="btn btn-sm bg-gray-100 text-teal-700 border border-teal-600 rounded-full px-4">
+                Sign In
+              </NavLink> */}
+            </>
+          )
         }
-      </ul>
+      </div>
     </div>
-    <a className="btn btn-ghost text-3xl"><span className='font-light'>Book</span>Nest</a>
-  </div>
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-      {links}
-    </ul>
-  </div>
-  <div className="navbar-end">
-    {
-        user ? <button
-        
-         onClick={handleSignOut} className='btn bg-teal-800 text-white rounded-3xl'>Sing out</button> :
-        <>
-        <NavLink to='/signup' className='btn bg-teal-800 text-white rounded-3xl '>Sign up</NavLink>
-    {/* <NavLink to='/signin' className='btn bg-teal-800 text-white rounded-3xl '>Sign In</NavLink> */}
-        </>
-    }
-  </div>
-</div>
     );
 };
 

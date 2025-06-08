@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { use, useState } from 'react';
 import { useLoaderData } from 'react-router';
+import { AuthContext } from '../../contexts/AuthContext';
 
-const BookDetails = () => {
+const BookDetails = () => {   
+const { user } = use(AuthContext);
 const books =useLoaderData()
+const [book, setBook] = useState(books);
 const {book_title,cover_photo,book_author,total_page,book_category,reading_status,book_overview}=books
+
+  const handleUpvote = () => {
+    fetch(`http://localhost:3000/books/upvote/${book._id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ user_email: user.email })
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          setBook(prev => ({ ...prev, upvotes: (prev.upvotes || 0) + 1 }));
+        } else {
+          console.log(data.message);
+        }
+      })
+      .catch(err => console.error(err));
+  };
+
     return (
         <div className="hero bg-base-200 min-h-screen">
   <div className="hero-content flex-col lg:flex-row">
@@ -20,7 +41,18 @@ const {book_title,cover_photo,book_author,total_page,book_category,reading_statu
       <p className="py-6 text-gray-500 font-semibold">
         {book_overview}
       </p>
-      
+      {!user ? (
+  <p className="text-sm text-red-500 mt-2">Please log in to upvote this book.</p>
+) : user.email === book.user_email ? (
+  <button className="btn btn-disabled" disabled>
+    You can't upvote your own book.
+  </button>
+) : (
+  <button onClick={handleUpvote} className="btn btn-success">
+    ❤️ Upvote ({book.upvotes || 0})
+  </button>
+)}
+
     </div>
   </div>
 </div>
