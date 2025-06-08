@@ -3,6 +3,7 @@ import React, { use } from 'react';
 import signupLotti from '../../assets/signup.json'
 import { AuthContext } from '../../contexts/AuthContext';
 import { NavLink } from 'react-router';
+import { motion, scale } from "motion/react"
 
 
 const Signup = () => {
@@ -40,7 +41,12 @@ const Signup = () => {
 
 
     return (
-       <div className="hero bg-teal-800 min-h-screen">
+       <motion.div
+        initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -30 }}
+      transition={{ duration: 0.5 }}
+        className="hero bg-teal-800 min-h-screen">
   <div className="hero-content flex-col lg:flex-row-reverse gap-6 border border-amber-50 rounded-3xl w-full">
     <div className="text-center  lg:text-left">
      <Lottie style={{width:'400px'}} animationData={signupLotti} loop={true}></Lottie>
@@ -74,7 +80,7 @@ const Signup = () => {
       </div>
     </div>
   </div>
-</div>
+</motion.div>
     );
 };
 
