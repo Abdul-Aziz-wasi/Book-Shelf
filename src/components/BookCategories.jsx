@@ -5,7 +5,7 @@ const BookCategories = () => {
     const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/book-categories') // Adjust URL if needed
+    fetch('http://localhost:3000/book-categories') 
       .then(res => res.json())
       .then(data => setCategories(data))
       .catch(err => console.error("Error loading categories:", err));

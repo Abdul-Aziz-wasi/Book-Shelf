@@ -3,6 +3,7 @@ import AllBooks from '../../components/AllBooks';
 import { motion } from 'framer-motion';
 
 const BookShelf = () => {
+    const [loading, setLoading] = useState(true);
   const [books, setBooks] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [filterStatus, setFilterStatus] = useState(''); 
@@ -14,6 +15,7 @@ const BookShelf = () => {
       .then(data => {
         setBooks(data);
         setFilteredBooks(data);
+        setLoading(false);
       });
   }, []);
 
@@ -66,11 +68,17 @@ const BookShelf = () => {
       </div>
 
     
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {filteredBooks.map(book => (
-          <AllBooks key={book._id} book={book} />
-        ))}
-      </div>
+     {loading ? (
+  <div className="flex justify-center items-center h-64">
+    <span className="loading loading-spinner loading-lg text-teal-600"></span>
+  </div>
+) : (
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    {filteredBooks.map(book => (
+      <AllBooks key={book._id} book={book} />
+    ))}
+  </div>
+)}
     </motion.div>
   );
 };

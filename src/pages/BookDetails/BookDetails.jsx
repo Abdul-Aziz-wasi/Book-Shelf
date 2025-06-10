@@ -1,6 +1,8 @@
 import React, { use, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
+import ReviewSection from '../ReviewSection/ReviewSection';
+
 
 const BookDetails = () => {   
 const { user } = use(AuthContext);
@@ -52,8 +54,11 @@ const {book_title,cover_photo,book_author,total_page,book_category,reading_statu
     ❤️ Upvote ({book.upvotes || 0})
   </button>
 )}
-
+<div>
+    
+</div>
     </div>
+    <ReviewSection bookId={book._id}></ReviewSection>
   </div>
 </div>
     );
