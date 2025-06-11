@@ -8,7 +8,7 @@ import { Pie } from "react-chartjs-2";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 
-// Register only Pie chart elements
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const MyProfile = () => {

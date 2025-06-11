@@ -5,7 +5,7 @@ const PopularBooks = () => {
   const [popularBooks, setPopularBooks] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/popular-books') // 
+    fetch('http://localhost:3000/popular-books') 
       .then(res => res.json())
       .then(data => setPopularBooks(data))
       .catch(error => console.log('inside error', error));

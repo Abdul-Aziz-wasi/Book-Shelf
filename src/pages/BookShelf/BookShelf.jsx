@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import AllBooks from '../../components/AllBooks';
 import { motion } from 'framer-motion';
 
+
 const BookShelf = () => {
-    const [loading, setLoading] = useState(true);
-  const [books, setBooks] = useState([]);
+    
+  const [loading, setLoading] = useState(true);
+  const [books, setBooks] = useState();
   const [searchText, setSearchText] = useState('');
   const [filterStatus, setFilterStatus] = useState(''); 
-  const [filteredBooks, setFilteredBooks] = useState([]);
+  const [filteredBooks, setFilteredBooks] = useState();
 
   useEffect(() => {
     fetch('http://localhost:3000/books') 

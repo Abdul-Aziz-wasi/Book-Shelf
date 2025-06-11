@@ -4,6 +4,7 @@ import signupLotti from '../../assets/signup.json'
 import { AuthContext } from '../../contexts/AuthContext';
 import { NavLink, useNavigate } from 'react-router';
 import { motion, scale } from "motion/react"
+import Swal from 'sweetalert2';
 
 
 const Signup = () => {
@@ -15,6 +16,7 @@ const Signup = () => {
         signInWithGoogle()
         .then(result=>{
             console.log(result)
+            navigate('/');
         }).catch(error=>{
             console.log(error)
         })
@@ -31,9 +33,59 @@ const Signup = () => {
         const password =form.password.value;
         console.log(name,photo,email,password)
 
+  const uppercaseRegex = /[A-Z]/;
+  const lowercaseRegex = /[a-z]/;
+  const specialCharacter = /[!@#$%^&*(),.?":{}|<>]/
+
+  if (password.length < 6) {
+   
+    Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Password must be at least 6 characters long.",
+  footer: '<a href="#">Why do I have this issue?</a>'
+});
+    return;
+  }
+
+  if (!uppercaseRegex.test(password)) {
+   
+     Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Password must contain at least one uppercase letter.",
+  footer: '<a href="#">Why do I have this issue?</a>'
+});
+    return;
+  }
+
+  if (!lowercaseRegex.test(password)) {
+   
+    
+     Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Password must contain at least one lowercase letter.",
+  footer: '<a href="#">Why do I have this issue?</a>'
+});
+    return;
+  }
+  if (!specialCharacter.test(password)) {
+   
+    
+     Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: "Password must contain at least one special character.",
+  footer: '<a href="#">Why do I have this issue?</a>'
+});
+    return;
+  }
+
         createUser(email, password)
         .then(result =>{
             console.log(result.user)
+            navigate('/');
         }).catch(error=>{
             console.log(error)
         })
@@ -71,7 +123,7 @@ const Signup = () => {
           <label className="label">Password</label>
           <input type="password" name='password' className="input" placeholder="Password" />
           <div><a className="link link-hover">Forgot password?</a></div>
-          <button onClick={navigate('/')} className="btn bg-teal-900 text-white mt-4">Sign Up</button>
+          <button type='submit' className="btn bg-teal-900 text-white mt-4">Sign Up</button>
         
         </fieldset>
        </form>
