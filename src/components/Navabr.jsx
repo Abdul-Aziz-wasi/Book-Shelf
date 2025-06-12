@@ -29,7 +29,7 @@ const Navabr = () => {
     return (
          <div className="navbar sticky top-0 z-50 bg-gradient-to-r from-teal-800 to-purple-800  text-white backdrop-blur-md shadow-sm ">
       <div className="navbar-start">
-        {/* Mobile Dropdown */}
+       
         <div className="dropdown text-white">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
@@ -42,20 +42,19 @@ const Navabr = () => {
             {links}
           </ul>
         </div>
-        {/* Logo */}
+        
         <Link to='/' className="text-3xl font-bold text-teal-800">
          <span className="text-yellow-300">Book</span><span className="text-white">Nest</span>
         </Link>
       </div>
 
-      {/* Desktop Menu */}
+      
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal gap-3 px-1 font-medium">
           {links}
         </ul>
       </div>
 
-      {/* Auth Buttons */}
       <div className="navbar-end space-x-2">
         {
           user ? (

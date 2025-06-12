@@ -3,6 +3,9 @@ import Banner from './Banner';
 import PopularBooks from '../../components/PopularBooks';
 import BookCategories from '../../components/BookCategories';
 import { motion, scale } from "motion/react"
+import Comments from '../../components/Comments/Comments';
+
+
 const Home = () => {
     return (
         <motion.div
@@ -14,6 +17,8 @@ const Home = () => {
             <Banner></Banner>
             <PopularBooks></PopularBooks>
             <BookCategories></BookCategories>
+            <Comments></Comments>
+            
         </motion.div>
     );
 };

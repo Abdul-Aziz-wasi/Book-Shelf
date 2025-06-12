@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState,  use } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import Swal from 'sweetalert2';
 import EditBookModal from '../../components/EditBookModal/EditBookModal';
@@ -6,7 +6,8 @@ import { motion } from 'framer-motion';
 
 
 const MyBooks = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = use(AuthContext);
+  console.log(user.accessToken)
   const [books, setBooks] = useState([]);
   const [editingBook, setEditingBook] = useState(null);
 

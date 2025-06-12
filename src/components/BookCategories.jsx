@@ -13,7 +13,7 @@ const BookCategories = () => {
     return (
         <section className="py-10 bg-white">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-2xl font-bold text-center text-purple-600 mb-8">🌟 Featured Categories</h2>
+        <h2 className="text-2xl font-bold text-center text-teal-800 mb-8"> Featured Categories...</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {categories.map((cat, idx) => (
             <div key={idx} className="bg-purple-100 rounded-xl shadow p-4 hover:bg-purple-200 transition">
