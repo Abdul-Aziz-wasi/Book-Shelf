@@ -3,6 +3,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 import signInLotti from '../../assets/signIn.json'
 import Lottie from 'lottie-react';
 import { NavLink, useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 const SignIn = () => {
         const {signInUser,signInWithGoogle}=use(AuthContext)
@@ -20,24 +21,34 @@ const SignIn = () => {
     }
     
     
-        const handleSignIn =(e)=>{
-            e.preventDefault()
-            const form =e.target;
-            
-            const email =form.email.value;
-            const password =form.password.value;
-            console.log(email,password)
+       const handleSignIn = (e) => {
+  e.preventDefault();
+  const form = e.target;
 
-            signInUser(email,password)
-            .then(result=>{
-                console.log(result)
-            }).catch(error=>{
-                console.log(error)
-            })
-    
-            
-    
-        }
+  const email = form.email.value;
+  const password = form.password.value;
+
+  signInUser(email, password)
+    .then(result => {
+      console.log("Sign in success:", result.user);
+      Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "LogIn successful",
+  showConfirmButton: false,
+  timer: 1500
+});
+      navigate('/');
+
+    })
+    .catch(error => {
+      console.error("Sign in error:", error.message);
+      
+Swal.fire("Wrong password! Try again");
+       
+    });
+};
+
     return (
         <div className="hero bg-teal-800 min-h-screen">
   <div className="hero-content flex-col lg:flex-row-reverse gap-6 border border-amber-50 rounded-3xl w-full">
@@ -62,7 +73,8 @@ const SignIn = () => {
           <label className="label">Password</label>
           <input type="password" name='password' className="input" placeholder="Password" />
           <div><a className="link link-hover">Forgot password?</a></div>
-          <button onClick={navigate('/')} className="btn bg-teal-900 text-white mt-4">Sign In</button>
+          <button type="submit" className="btn bg-teal-900 text-white mt-4">Sign In</button>
+
         
         </fieldset>
        </form>
