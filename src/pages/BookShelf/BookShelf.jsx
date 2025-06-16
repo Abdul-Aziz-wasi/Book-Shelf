@@ -12,7 +12,7 @@ const BookShelf = () => {
   const [filteredBooks, setFilteredBooks] = useState();
 
   useEffect(() => {
-    fetch('http://localhost:3000/books') 
+    fetch('https://booknest-server-three.vercel.app/books') 
       .then(res => res.json())
       .then(data => {
         setBooks(data);

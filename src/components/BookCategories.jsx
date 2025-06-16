@@ -5,7 +5,7 @@ const BookCategories = () => {
     const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/book-categories') 
+    fetch('https://booknest-server-three.vercel.app/book-categories') 
       .then(res => res.json())
       .then(data => setCategories(data))
       .catch(err => console.error("Error loading categories:", err));

@@ -14,7 +14,7 @@ const MyBooks = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/my-books/${user.email}`,{
+      fetch(`https://booknest-server-three.vercel.app/my-books/${user.email}`,{
         headers:{
           authorization:`Bearer ${user.accessToken}`
         }
@@ -34,7 +34,7 @@ const MyBooks = () => {
     });
 
     if (confirm.isConfirmed) {
-      const res = await fetch(`http://localhost:3000/books/${id}`, {
+      const res = await fetch(`https://booknest-server-three.vercel.app/books/${id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user_email: user.email })

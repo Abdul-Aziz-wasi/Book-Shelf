@@ -11,7 +11,7 @@ const [book, setBook] = useState(books);
 const {book_title,cover_photo,book_author,total_page,book_category,reading_status,book_overview}=books
 
   const handleUpvote = () => {
-    fetch(`http://localhost:3000/books/upvote/${book._id}`, {
+    fetch(`https://booknest-server-three.vercel.app/books/upvote/${book._id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ user_email: user.email })

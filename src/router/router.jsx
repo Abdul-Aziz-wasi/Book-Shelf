@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         },
         {
             path:'/books/:id',
-            loader:({params})=> fetch(`http://localhost:3000/books/${params.id}`),
+            loader:({params})=> fetch(`https://booknest-server-three.vercel.app/books/${params.id}`),
             Component:BookDetails
 
         },
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         },
         {
             path:'/bookShelf',
-            loader:()=>fetch('http://localhost:3000/books'),
+            loader:()=>fetch('https://booknest-server-three.vercel.app/books'),
             Component:BookShelf
         },
         {

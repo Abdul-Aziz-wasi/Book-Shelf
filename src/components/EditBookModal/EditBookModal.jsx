@@ -11,7 +11,7 @@ const EditBookModal = ({ book, onClose, onUpdateSuccess }) => {
   const handleUpdate = async (e) => {
     e.preventDefault();
 
-    const res = await fetch(`http://localhost:3000/books/${book._id}`, {
+    const res = await fetch(`https://booknest-server-three.vercel.app/books/${book._id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)

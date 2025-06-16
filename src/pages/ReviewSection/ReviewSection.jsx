@@ -8,7 +8,7 @@ const ReviewSection = ({ bookId }) => {
   const [userReview, setUserReview] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/reviews/${bookId}`)
+    fetch(`https://booknest-server-three.vercel.app/reviews/${bookId}`)
       .then(res => res.json())
       .then(data => {
         setReviews(data);
@@ -31,8 +31,8 @@ const ReviewSection = ({ bookId }) => {
 
     const method = userReview ? 'PUT' : 'POST';
     const url = userReview
-      ? `http://localhost:3000/reviews/${bookId}/${user.email}`
-      : 'http://localhost:3000/reviews';
+      ? `https://booknest-server-three.vercel.app/reviews/${bookId}/${user.email}`
+      : 'https://booknest-server-three.vercel.app/reviews';
 
     const res = await fetch(url, {
       method,
@@ -49,7 +49,7 @@ const ReviewSection = ({ bookId }) => {
   };
 
   const handleDelete = async () => {
-    const res = await fetch(`http://localhost:3000/reviews/${bookId}/${user.email}`, {
+    const res = await fetch(`https://booknest-server-three.vercel.app/reviews/${bookId}/${user.email}`, {
       method: 'DELETE'
     });
     const result = await res.json();
