@@ -18,6 +18,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     Component:Root,
+      errorElement:<ErrorPage></ErrorPage>,
     children:[
         {
             index:true,
@@ -61,10 +62,7 @@ const router = createBrowserRouter([
                 <MyProfile></MyProfile>
             </PrivateRoute>
         },
-        {
-            path:'*',
-            Component:ErrorPage
-        }
+       
     ]
   },
 ]);
