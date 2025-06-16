@@ -6,14 +6,19 @@ import { motion } from 'framer-motion';
 
 
 const MyBooks = () => {
-  const { user } = use(AuthContext);
+  const { user} = use(AuthContext);
   console.log(user.accessToken)
   const [books, setBooks] = useState([]);
   const [editingBook, setEditingBook] = useState(null);
 
+
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/my-books/${user.email}`)
+      fetch(`http://localhost:3000/my-books/${user.email}`,{
+        headers:{
+          authorization:`Bearer ${user.accessToken}`
+        }
+      })
         .then(res => res.json())
         .then(data => setBooks(data));
     }

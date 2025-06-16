@@ -17,7 +17,11 @@ const MyProfile = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/my-books/${user.email}`)
+      fetch(`http://localhost:3000/my-books/${user.email}`,{
+        headers:{
+          authorization:`Bearer ${user.accessToken}`
+        }
+      })
         .then(res => res.json())
         .then(data => setBooks(data))
         .catch(err => console.error("Fetch error:", err));

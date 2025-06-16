@@ -2,13 +2,14 @@ import Lottie from 'lottie-react';
 import React, { use } from 'react';
 import signupLotti from '../../assets/signup.json'
 import { AuthContext } from '../../contexts/AuthContext';
-import { NavLink, useNavigate } from 'react-router';
+import { NavLink, useLocation, useNavigate } from 'react-router';
 import { motion, scale } from "motion/react"
 import Swal from 'sweetalert2';
 
 
 const Signup = () => {
     const {createUser,signInWithGoogle}=use(AuthContext);
+    const location = useLocation();
 
     const navigate =useNavigate()
 
@@ -16,7 +17,8 @@ const Signup = () => {
         signInWithGoogle()
         .then(result=>{
             console.log(result)
-            navigate('/');
+           const from = location.state?.from?.pathname || '/';
+navigate(from, { replace: true });
         }).catch(error=>{
             console.log(error)
         })
@@ -85,7 +87,15 @@ const Signup = () => {
         createUser(email, password)
         .then(result =>{
             console.log(result.user)
-            navigate('/');
+             Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "LogIn successful",
+              showConfirmButton: false,
+              timer: 1500
+            });
+           const from = location.state?.from?.pathname || '/';
+            navigate(from, { replace: true });
         }).catch(error=>{
             console.log(error)
         })

@@ -2,11 +2,12 @@ import React, { use } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import signInLotti from '../../assets/signIn.json'
 import Lottie from 'lottie-react';
-import { NavLink, useNavigate } from 'react-router';
+import { NavLink, useLocation, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 
 const SignIn = () => {
         const {signInUser,signInWithGoogle}=use(AuthContext)
+        const location = useLocation();
 
         const navigate= useNavigate()
 
@@ -14,6 +15,8 @@ const SignIn = () => {
         signInWithGoogle()
         .then(result=>{
             console.log(result)
+            const from = location.state?.from?.pathname || '/';
+navigate(from, { replace: true });
         }).catch(error=>{
             console.log(error)
         })
@@ -37,14 +40,14 @@ const SignIn = () => {
   title: "LogIn successful",
   showConfirmButton: false,
   timer: 1500
-});
-      navigate('/');
-
+});    
+const from = location.state?.from?.pathname || '/';
+navigate(from, { replace: true });
     })
     .catch(error => {
       console.error("Sign in error:", error.message);
       
-Swal.fire("Wrong password! Try again");
+Swal.fire("Something Wrong! Try again");
        
     });
 };

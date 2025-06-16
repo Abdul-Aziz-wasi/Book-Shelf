@@ -82,11 +82,11 @@ const AddBooks = () => {
 
         <textarea name="book_overview" onChange={handleChange} value={formData.book_overview} className="textarea textarea-bordered w-full" placeholder="Book Overview" rows={4}></textarea>
 
-        {/* <div className="bg-gray-100 p-3 rounded">
+        <div className="bg-gray-100 p-3 rounded">
           <p><strong>Your Email:</strong> {user.email}</p>
           <p><strong>Your Name:</strong> {user.displayName || user.email}</p>
           <p><strong>Upvotes:</strong> 0 (initial)</p>
-        </div> */}
+        </div>
 
         <button type="submit" className="btn bg-teal-800 text-white w-full">Add Book</button>
       </form>

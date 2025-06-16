@@ -64,13 +64,13 @@ const Navabr = () => {
             </button>
           ) : (
             <>
-              <NavLink to='/signup' className="btn btn-sm bg-white text-teal-800 hover:bg-gray-100
+              {/* <NavLink to='/signup' className="btn btn-sm bg-white text-teal-800 hover:bg-gray-100
  rounded-full px-4">
                 Sign Up
-              </NavLink>
-              {/* <NavLink to='/signin' className="btn btn-sm bg-gray-100 text-teal-700 border border-teal-600 rounded-full px-4">
-                Sign In
               </NavLink> */}
+              <NavLink to='/signin' className="btn btn-sm bg-gray-100 text-teal-700 border border-teal-600 rounded-full px-4">
+                Sign In
+              </NavLink>
             </>
           )
         }
