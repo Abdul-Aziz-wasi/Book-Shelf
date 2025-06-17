@@ -4,6 +4,7 @@ import PopularBooks from '../../components/PopularBooks';
 import BookCategories from '../../components/BookCategories';
 import { motion, scale } from "motion/react"
 import Comments from '../../components/Comments/Comments';
+import Faq from '../../components/FAQ/Faq';
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
             <PopularBooks></PopularBooks>
             <BookCategories></BookCategories>
             <Comments></Comments>
+            <Faq></Faq>
             
         </motion.div>
     );
