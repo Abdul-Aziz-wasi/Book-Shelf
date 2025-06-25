@@ -50,7 +50,7 @@ A full-featured web application to manage your personal book collection. Users c
 ---
 
 ## ⚙️ Run Locally
-npm install
+npm install,
 npm run dev
 
 
