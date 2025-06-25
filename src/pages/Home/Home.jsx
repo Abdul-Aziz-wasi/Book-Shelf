@@ -8,6 +8,7 @@ import Faq from '../../components/FAQ/Faq';
 
 
 const Home = () => {
+    
     return (
         <motion.div
          initial={{ opacity: 0, y: 30 }}
