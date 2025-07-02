@@ -21,11 +21,8 @@ const Footer = () => {
 
         
         <div>
-          <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
-          <ul className="space-y-2">
-            <li><a href="/terms" className="hover:underline">Terms & Conditions</a></li>
-            <li><a href="/privacy" className="hover:underline">Privacy Policy</a></li>
-          </ul>
+          <h3 className="text-lg font-semibold mb-2">Social Links</h3>
+          
 
           <div className="flex gap-4 mt-4">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">

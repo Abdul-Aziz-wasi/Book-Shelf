@@ -17,7 +17,7 @@ const comments = [
 
 const Comments = () => {
   return (
-    <section className="py-10 bg-white overflow-hidden">
+    <section className="py-10 bg-white max-w-6xl mx-auto overflow-hidden">
       <h2 className="text-3xl font-bold text-teal-800 text-center mb-6">
         What Readers Are Saying...
       </h2>

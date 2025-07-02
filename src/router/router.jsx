@@ -13,6 +13,8 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import MyBooks from "../pages/MyBooks/MyBooks";
 import MyProfile from "../pages/MyProfile/MyProfile";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
+import About from "../pages/About us/About";
+import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +64,15 @@ const router = createBrowserRouter([
                 <MyProfile></MyProfile>
             </PrivateRoute>
         },
+        {
+            path:'/about',
+            Component:About
+
+        },
+        {
+            path:'/privacy',
+            Component:PrivacyPolicy
+        }
        
     ]
   },

@@ -75,7 +75,7 @@ const BookShelf = () => {
     <span className="loading loading-spinner loading-lg text-teal-600"></span>
   </div>
 ) : (
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+  <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
     {filteredBooks.map(book => (
       <AllBooks key={book._id} book={book} />
     ))}

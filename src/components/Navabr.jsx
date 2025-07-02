@@ -19,9 +19,16 @@ const Navabr = () => {
     const links = <>
     <li className='font-bold '><NavLink to='/'>Home</NavLink></li>
     <li className='font-bold '><NavLink to='/bookShelf'>Bookshelf</NavLink></li>
-    <li className='font-bold '><NavLink to='/addBooks'>Add Books</NavLink></li>
+    {
+      user && (<>
+       <li className='font-bold '><NavLink to='/addBooks'>Add Books</NavLink></li>
     <li className='font-bold '><NavLink to='/myBooks'>My Books</NavLink></li>
     <li className='font-bold '><NavLink to='/myProfile'>My Profile</NavLink></li>
+      </>)
+    }
+   
+    <li className='font-bold '><NavLink to='/privacy'>Privacy & Policy</NavLink></li>
+    <li className='font-bold '><NavLink to='/about'>About Us</NavLink></li>
     
         
 

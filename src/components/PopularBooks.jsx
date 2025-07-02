@@ -16,7 +16,7 @@ const PopularBooks = () => {
     <section className="py-10 bg-gray-100">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-2xl font-bold text-center text-teal-800 mb-8"> Popular Books...</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {popularBooks.map(book => (
             <div key={book._id} className="bg-white rounded-xl shadow p-4">
               <img

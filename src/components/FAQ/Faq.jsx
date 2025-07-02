@@ -2,7 +2,8 @@ import React from 'react';
 
 const Faq = () => {
     return (
-        <div>
+        <div className='max-w-6xl mx-auto'>
+          <h3 className='text-3xl font-bold text-teal-800 text-center py-4'>FAQ </h3>
   <div className="collapse collapse-arrow bg-base-100 border border-base-300">
     <input type="radio" name="my-accordion-2" defaultChecked />
     <div className="collapse-title font-semibold">How do I add a new book to my shelf?</div>

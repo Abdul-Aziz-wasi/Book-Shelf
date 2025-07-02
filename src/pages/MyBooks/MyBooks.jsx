@@ -1,22 +1,19 @@
-import { useEffect, useState,  use } from 'react';
+import { useEffect, useState, use } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import Swal from 'sweetalert2';
 import EditBookModal from '../../components/EditBookModal/EditBookModal';
 import { motion } from 'framer-motion';
 
-
 const MyBooks = () => {
-  const { user} = use(AuthContext);
-  console.log(user.accessToken)
+  const { user } = use(AuthContext);
   const [books, setBooks] = useState([]);
   const [editingBook, setEditingBook] = useState(null);
 
-
   useEffect(() => {
     if (user?.email) {
-      fetch(`https://booknest-server-three.vercel.app/my-books/${user.email}`,{
-        headers:{
-          authorization:`Bearer ${user.accessToken}`
+      fetch(`https://booknest-server-three.vercel.app/my-books/${user.email}`, {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`
         }
       })
         .then(res => res.json())
@@ -64,37 +61,58 @@ const MyBooks = () => {
 
   return (
     <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -30 }}
-          transition={{ duration: 0.5 }} className="max-w-6xl mx-auto mt-10 p-4">
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -30 }}
+      transition={{ duration: 0.5 }}
+      className="max-w-6xl mx-auto mt-10 p-4"
+    >
       <h2 className="text-3xl font-semibold mb-6">📚 My Books</h2>
+
       {books.length === 0 ? (
         <p className="text-gray-600">You haven’t added any books yet.</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {books.map(book => (
-            <div key={book._id} className="bg-white p-4 shadow rounded-lg">
-              <img src={book.cover_photo} alt={book.book_title} className="h-48 w-full object-cover rounded mb-3" />
-              <h3 className="text-xl font-bold">{book.book_title}</h3>
-              <p className="text-sm text-gray-600">Author: {book.book_author}</p>
-              <p className="text-sm text-gray-600">Pages: {book.total_page}</p>
-              <div className="flex justify-between mt-3">
-                <button onClick={() => handleUpdate(book)} className="btn btn-sm btn-outline btn-info">Edit</button>
-                <button onClick={() => handleDelete(book._id)} className="btn btn-sm btn-outline btn-error">Delete</button>
-              </div>
-            </div>
-          ))}
+        <div className="overflow-x-auto">
+          <table className="table w-full table-zebra text-sm">
+            <thead>
+              <tr>
+                <th>Cover</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Pages</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {books.map(book => (
+                <tr key={book._id}>
+                  <td>
+                    <img src={book.cover_photo} alt={book.book_title} className="h-14 w-10 object-cover rounded" />
+                  </td>
+                  <td>{book.book_title}</td>
+                  <td>{book.book_author}</td>
+                  <td>{book.total_page}</td>
+                  <td>{book.book_category}</td>
+                  <td>{book.reading_status}</td>
+                  <td className="space-x-2">
+                    <button onClick={() => handleUpdate(book)} className="btn btn-xs btn-info">Edit</button>
+                    <button onClick={() => handleDelete(book._id)} className="btn btn-xs btn-error">Delete</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
 
       {editingBook && (
-        <EditBookModal 
-         book={editingBook}
+        <EditBookModal
+          book={editingBook}
           onClose={handleModalClose}
           onUpdateSuccess={handleUpdateSuccess}
-        ></EditBookModal>
-        
+        />
       )}
     </motion.div>
   );
