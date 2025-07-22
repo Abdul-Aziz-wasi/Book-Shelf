@@ -36,7 +36,7 @@ const Banner = () => {
     </div>
   </div>
   <div id="slide3" className="carousel-item relative flex-col lg:flex-row w-full h-[70vh]">
-    <Lottie  style={{width:'400px'}} animationData={Bookthree} loop={true}></Lottie>
+    <img src="https://rtl.booklovers.ancorathemes.com/wp-content/uploads/2020/05/post1-copyright-1024x766.jpg" alt="" />
      <div className='justify-center items-center lg:pt-36 p-4'>
         <motion.h1
         initial={{scale:0}}
