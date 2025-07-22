@@ -9,7 +9,7 @@ const Banner = () => {
     return (
       <div className="carousel w-full">
   <div id="slide1" className="carousel-item relative flex-col lg:flex-row w-full h-[70vh] ">
-     <Lottie  style={{width:'400px'}} animationData={Bookone} loop={true}></Lottie>
+     
      <div className='justify-center items-center lg:pt-36 p-4'>
         <motion.h1
         initial={{scale:0}}
