@@ -9,6 +9,7 @@ const Banner = () => {
     return (
       <div className="carousel w-full">
   <div id="slide1" className="carousel-item relative flex-col lg:flex-row w-full h-[70vh] ">
+    <img src="https://rtl.booklovers.ancorathemes.com/wp-content/uploads/2021/02/post28-copyright-1536x1024.jpg" alt="" />
      
      <div className='justify-center items-center lg:pt-36 p-4'>
         <motion.h1
