@@ -25,7 +25,7 @@ const Footer = () => {
           
 
           <div className="flex gap-4 mt-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.facebook.com/ma.aziz.79025" target="_blank" rel="noopener noreferrer">
               <FaFacebookF className="text-xl hover:text-blue-500" />
             </a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
