@@ -17,9 +17,11 @@ const Banner = () => {
           <motion.h1
             initial={{ scale: 0 }}
             animate={{ scale: 1, transition: { duration: 4 } }}
-            className="text-3xl lg:text-4xl font-bold text-white text-center max-w-3xl"
+            className="text-2xl lg:text-2xl font-semibold text-white text-center max-w-3xl"
           >
-            Build your bookshelf, write reviews, and see what others are reading.
+            Build your bookshelf <br />
+            <span className='text-sm font-normal '> write reviews, and see what others are reading.</span><br />
+            <button className='btn btn-primary'>Explore books</button>
           </motion.h1>
         </div>
         <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
@@ -40,9 +42,12 @@ const Banner = () => {
           <motion.h1
             initial={{ scale: 0 }}
             animate={{ scale: 1, transition: { duration: 4 } }}
-            className="text-3xl lg:text-4xl font-bold text-white text-center max-w-3xl"
+            className="text-2xl lg:text-2xl font-semibold text-white text-center max-w-3xl"
           >
-            Your personal digital shelf to log books, share reviews, and discover what to read next.
+            Your personal digital shelf <br />
+            <span className='text-sm font-normal '> to log books, share reviews, and discover what to read next.</span>
+            <br />
+            <button className='btn btn-primary'>Explore books</button>
           </motion.h1>
         </div>
         <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
@@ -63,9 +68,12 @@ const Banner = () => {
           <motion.h1
             initial={{ scale: 0 }}
             animate={{ scale: 1, transition: { duration: 4 } }}
-            className="text-3xl lg:text-4xl font-bold text-white text-center max-w-3xl"
+            className="text-2xl lg:text-2xl font-smibold text-white text-center max-w-3xl"
           >
-            Build your bookshelf, write reviews, and see what others are reading.
+            Build your bookshelf <br />
+            <span className='text-sm font-normal '> write reviews, and see what others are reading..</span>
+            <br />
+            <button className='btn btn-primary'>Explore books</button>
           </motion.h1>
         </div>
         <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
