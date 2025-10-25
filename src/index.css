@@ -1,5 +1,8 @@
 @import "tailwindcss";
-@plugin "daisyui";
-body{
-font-family: "Montserrat", sans-serif;
+@plugin "daisyui" {
+  themes: ["light", "dark"]; /* ✅ enable both light and dark mode */
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
 }
